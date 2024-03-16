@@ -48,9 +48,7 @@ def twitter_login():
     oauth_token_secret = request_token["oauth_token_secret"]
     # 2.リクエストトークンを指定してTwitterへ認可リクエスト(Authorization Request)を行う。
     # (Step 2: Redirecting the user:https://developer.twitter.com/en/docs/authentication/guides/log-in-with-twitter#tab2)
-    return redirect(
-        authorization_endpoint
-        + "?{}".format(parse.urlencode({"oauth_token": oauth_token}))
+    return redirect("https://iruka-backend.onrender.com/"
     )
 
 
