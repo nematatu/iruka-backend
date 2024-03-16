@@ -137,7 +137,7 @@ def callback():
     # return redirect(url_for("index"))
     # パラメータをURLに追加
     redirect_url = "https://iruka-backend.onrender.com/"
-    redirect(redirect_url)
+    return redirect(redirect_url)
 
 
 @bp.route("/login")
