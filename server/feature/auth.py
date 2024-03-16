@@ -141,7 +141,6 @@ def callback():
     return redirect(redirect_url)
 
 
-
 @bp.route("/login")
 def login():
     userid = session.get("user_id")
