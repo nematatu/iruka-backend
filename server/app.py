@@ -14,7 +14,7 @@ CORS(app)
 
 app.config.from_mapping(
     SECRET_KEY="dev",
-    DB=os.environ["DATABASE_URL"],
+    DB="postgres://iruka_back_user:jqUAxtOGL0UxesfnSy0XdRLbJTKZJGS7@dpg-cnqejpud3nmc7393e180-a.oregon-postgres.render.com/iruka_back",
 )
 
 

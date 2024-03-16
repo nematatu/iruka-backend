@@ -5,7 +5,7 @@ import click
 from flask import current_app, g
 import os
 
-DB = os.environ["DATABASE_URL"]
+DB = "postgres://iruka_back_user:jqUAxtOGL0UxesfnSy0XdRLbJTKZJGS7@dpg-cnqejpud3nmc7393e180-a.oregon-postgres.render.com/iruka_back"
 
 
 def get_db():
