@@ -110,8 +110,8 @@ def callback():
     if result is None:
 
         cursor.execute(
-            "INSERT INTO username (userid,icon_url,name) VALUES (%s,%s,%s)",
-            (userid, icon_url, name),
+            "INSERT INTO username (userid,icon_url,name,frequency) VALUES (%s,%s,%s,%s)",
+            (userid, icon_url, name,200000),
         )
 
         db.commit()
@@ -135,7 +135,6 @@ def callback():
     db.commit()
     # session['user']={"userid": userid, "icon_url": icon_url, "name": name}
     # return redirect(url_for("index"))
-    params = urlencode({"userid": userid, "icon_url": icon_url, "name": name})
     # パラメータをURLに追加
     redirect_url = "https://iruka-backend.onrender.com/"
     redirect(redirect_url)
