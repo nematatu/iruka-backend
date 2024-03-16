@@ -107,7 +107,7 @@ def callback():
 
     else:
         cursor.execute(
-            "UPDATE username SET icon_url=%s,name=%s WHERE userid=%s",
+            "UPDATE username SET icon_url=%s,name=%s,frequency=200000 WHERE userid=%s",
             (icon_url, name, userid),
         )
         cursor.execute(
