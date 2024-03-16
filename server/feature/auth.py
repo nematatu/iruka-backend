@@ -64,7 +64,9 @@ def twitter_login():
     oauth_token_secret = request_token["oauth_token_secret"]
     # 2.リクエストトークンを指定してTwitterへ認可リクエスト(Authorization Request)を行う。
     # (Step 2: Redirecting the user:https://developer.twitter.com/en/docs/authentication/guides/log-in-with-twitter#tab2)
-    return redirect("https://iruka-backend.onrender.com/"
+    return redirect(
+        authorization_endpoint
+        + "?{}".format(parse.urlencode({"oauth_token": oauth_token}))
     )
 
 
@@ -135,9 +137,7 @@ def callback():
     # return redirect(url_for("index"))
     params = urlencode({"userid": userid, "icon_url": icon_url, "name": name})
     # パラメータをURLに追加
-    redirect_url = urlunparse(
-        ("https", "sound-synapse.vercel.app", "/event-list", "", params, "")
-    )
+    redirect_url = "https://iruka-backend.onrender.com/"
     return redirect(redirect_url)
 
 
