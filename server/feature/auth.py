@@ -118,7 +118,11 @@ def callback():
     db.commit()
     # session['user']={"userid": userid, "icon_url": icon_url, "name": name}
     # return redirect(url_for("index"))
-    redirect_url = "https://iruka-backend.onrender.com/"
+    params = urlencode({"userid": userid, "icon_url": icon_url, "name": name})
+    # パラメータをURLに追加
+    redirect_url = urlunparse(
+        ("https", "sound-synapse.vercel.app", "/event-list", "", params, "")
+    )
     return redirect(redirect_url)
 
 
