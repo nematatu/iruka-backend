@@ -32,21 +32,21 @@ credentials = twitter_base_url + "/1.1/account/verify_credentials.json"
 
 bp = Blueprint("auth", __name__, url_prefix="/auth")
 
-def convert_to_number(string, min_val=200000, max_val=1000000):
-    # 文字列から数字とアンダースコアを取り出す
-    digits = [str(ord(char) - 96) if char.isalpha() else char for char in string.lower()]
+# def convert_to_number(string, min_val=200000, max_val=1000000):
+#     # 文字列から数字とアンダースコアを取り出す
+#     digits = [str(ord(char) - 96) if char.isalpha() else char for char in string.lower()]
     
-    # アンダースコアを除去
-    digits = ''.join(filter(lambda x: x != '_', digits))
+#     # アンダースコアを除去
+#     digits = ''.join(filter(lambda x: x != '_', digits))
     
-    # 数値に変換
-    number = int(''.join(digits))
+#     # 数値に変換
+#     number = int(''.join(digits))
     
-    # 200000から1000000の範囲に収め、かつ一意の値となるよう調整
-    offset = number - min_val
-    number = min_val + offset % (max_val - min_val)
+#     # 200000から1000000の範囲に収め、かつ一意の値となるよう調整
+#     offset = number - min_val
+#     number = min_val + offset % (max_val - min_val)
     
-    return number
+#     return number
 
 @bp.route("/twitter_login", methods=("GET", "POST"))
 def twitter_login():
@@ -122,10 +122,10 @@ def callback():
         )
 
     else:
-        freq_int=convert_to_number(userid)
+        # freq_int=convert_to_number(userid)
         cursor.execute(
-            "UPDATE username SET icon_url=%s,name=%s,frequency=%s WHERE userid=%s",
-            (icon_url, name, userid,freq_int),
+            "UPDATE username SET icon_url=%s,name=%s,frequency=200000 WHERE userid=%s",
+            (icon_url, name, userid),
         )
         cursor.execute(
             "UPDATE oauth SET credential=%s WHERE identifier=%s",
