@@ -28,10 +28,6 @@ from feature import auth
 
 app.register_blueprint(auth.bp)
 
-from feature import spotify
-
-app.register_blueprint(spotify.music)
-
 from feature import db
 
 from feature import event

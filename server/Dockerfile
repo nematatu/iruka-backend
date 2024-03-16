@@ -6,5 +6,5 @@ RUN pip install -r requirements.txt
 COPY . .
 
 EXPOSE 8000
-#CMD gunicorn -b 0.0.0.0:8000 app:app --reload
-CMD gunicorn app:app
+CMD gunicorn -b 0.0.0.0:8080 app:app --reload
+#CMD gunicorn app:app

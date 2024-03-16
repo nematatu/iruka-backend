@@ -32,7 +32,6 @@ credentials = twitter_base_url + "/1.1/account/verify_credentials.json"
 
 bp = Blueprint("auth", __name__, url_prefix="/auth")
 
-
 @bp.route("/twitter_login", methods=("GET", "POST"))
 def twitter_login():
     # 1.リクエストトークンを取得する。
